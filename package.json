@@ -1,0 +1,70 @@
+{
+  "name": "incident-management",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@cap-js/hana": "^1",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "@sap/ux-specification": "^1.124.0",
+    "axios": "^1.7.7",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "chai-subset": "^1.6.0",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "test": "jest tests/test.js",
+    "start": "cds-serve",
+    "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-incidents-lauchpad": "cds watch --open launchpage.html#Shell-home",
+    "undeploy": "cf undeploy incident-management --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "incident.support@tester.sap.com": {
+              "password": "initial",
+              "roles": [
+                "support"
+              ]
+            },
+            "alice": {
+              "roles": [
+                "support"
+              ]
+            },
+            "bob": {
+              "roles": [
+                "support"
+              ]
+            }
+          }
+        }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "html5-repo": true
+    }
+  },
+  "sapux": [
+    "app/incidents"
+  ]
+}
