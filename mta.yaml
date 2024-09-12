@@ -59,6 +59,7 @@ modules:
       instance:
         destinations:
         - Name: incidents_incident_management_html5_repo_host
+          ServiceInstanceName: incident-management-html5-repo-host
           ServiceKeyName: incident-management-html5-repo-host-key
           sap.cloud.service: incidents
         - Authentication: OAuth2UserTokenExchange
@@ -84,7 +85,7 @@ resources:
   type: com.sap.xs.hdi-container
   parameters:
     config:
-      database_id: a6c6d401-2d51-419f-9ca4-1a51bb392af1
+      database_id: 99a8c0de-90a2-4acb-9bc6-9523e2c0eeca
     service: hana
     service-plan: hdi-shared
 - name: incident-management-html5-repo-host

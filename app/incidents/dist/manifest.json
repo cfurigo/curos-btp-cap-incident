@@ -28,7 +28,7 @@
         "crossNavigation": {
             "inbounds": {
                 "incident-app-incident": {
-                    "semanticObject": "incident-app",
+                    "semanticObject": "incidents",
                     "action": "incident",
                     "title": "{{flpTitle}}",
                     "signature": {
