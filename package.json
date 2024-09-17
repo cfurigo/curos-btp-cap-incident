@@ -38,18 +38,18 @@
         "auth": {
           "kind": "mocked",
           "users": {
-            "incident.support@tester.sap.com": {
+            "incident.support@test.com": {
               "password": "initial",
               "roles": [
                 "support"
               ]
             },
-            "alice": {
+            "cfurigo@coachit.com.br": {
               "roles": [
-                "support"
+                "admin"
               ]
             },
-            "bob": {
+            "cfurigo@coachit.com.br": {
               "roles": [
                 "support"
               ]
